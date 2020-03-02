@@ -15,4 +15,3 @@ nginx:1.17:
   only:
     - tags
     - web
-  when: manual

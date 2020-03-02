@@ -18,4 +18,4 @@ else
 fi
 
 echo "Setting fastcgi pass configuration"
-sed -i -e "s/%\$FASTCGI_PASS%/$REPLACE/g" /etc/nginx/nginx.conf;
+sed -i -e "s/\$FASTCGI_PASS/$REPLACE/g" /etc/nginx/nginx.conf;
