@@ -1,6 +1,6 @@
 #!/bin/sh
 
-[ -z $NGINX_ROOT_DIR ] && NGINX_ROOT_DIR="/var/www/data/public"
+[ -z $NGINX_ROOT_DIR ] && NGINX_ROOT_DIR="public"
 
 # Set it as root directory
 mkdir -p $NGINX_ROOT_DIR
