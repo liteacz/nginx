@@ -4,7 +4,7 @@
 
 mkdir -p "${HTTP_ERRORS_DIR}"
 
-replace="
+replace_content="
     error_page   404  /404.html;
     error_page   403  /403.html;
     error_page   500  /500.html;
@@ -17,7 +17,12 @@ replace="
     }
 "
 
+tmp=$(mktemp)
+echo "${replace_content}" > "${tmp}"
+
 sed -i \
-    -e \
-    "s~\# litea.nginx.placeholders.static_http_errors~${replace}~g" \
+    -e "/\# litea.nginx.placeholders.static_http_errors/r ${tmp}" \
+    -e "//d" \
     /etc/nginx/nginx.conf
+
+rm "${tmp}"

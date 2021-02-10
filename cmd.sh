@@ -12,13 +12,14 @@ case "${1}" in
 
     "run-local")
         version="${2}"
-        cmd="${3}"
+        shift 2
+        cmd=${@}
 
         docker run \
             -it \
             --rm \
             -p 8000:80 \
             "liteacz/nginx:${version}-local" \
-            "${cmd}"
+            ${cmd}
         ;;
 esac
